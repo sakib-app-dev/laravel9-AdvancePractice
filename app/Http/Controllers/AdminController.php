@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Image;
 
 class AdminController extends Controller
 {
@@ -52,18 +53,21 @@ class AdminController extends Controller
         //                 ->withErrors($validator)
         //                 ->withInput();
         // }else{
-            $orgName=$request->file('image')->getClientOriginalName();
 
-            $filename=date('Y-m-d').time().$orgName;
-           
-            $request->file('image') ->move(storage_path('/app/public/products'),$filename);
+
+
+            // $orgName=$request->file('image')->getClientOriginalName();
+            // $filename=date('Y-m-d').time().$orgName;          
+            // $request->file('image') ->move(storage_path('/app/public/products'),$filename);
             // dd($request->image);
+
+
             Product::create([
                 'title'=>$request->title,
                 'category'=>$request->category,
                 'is_active'=>$request->is_active ? true : false,
                 'description'=>$request->description,
-                'image'=>$filename
+                'image' =>  $this->uploadImage($request->file('image'))
             ]);
         
             return redirect()
@@ -124,6 +128,18 @@ class AdminController extends Controller
         ->with('message','Delete Successfully');
     }
 
+
+    public function uploadImage($file){
+        $fileName = date('y-m-d').'-'.time().'.'.$file ->getClientOriginalExtension();
+       
+        $file->move(storage_path('app/public/products'), $fileName);
+
+        // Image::make($file)
+        //         ->resize(200, 200)
+        //         ->save(storage_path() . '/app/public/products' . $fileName);
+
+        return $fileName;
+    }
 
 
 

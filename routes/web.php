@@ -57,7 +57,7 @@ Route::prefix('/users')->name('users.')->group(function(){
 
 Route::get('/admin',[AdminController::class, 'dashboard'])->name('admin.dashboard');
 // Group Routing
-
+/*
 Route::prefix('/admin')->name('admin.')->group(function(){
 
     Route::get('/',[AdminController::class, 'dashboard'])->name('dashboard');
@@ -83,7 +83,8 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     });
 });
 
-// Route::resource('/categories',CategoryController::class);
+*/
+Route::resource('/categories',CategoryController::class);
 
 
 Route::get('/pruducts-trash',[AdminController::class, 'productTrash'])->name('product.trash');

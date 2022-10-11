@@ -23,8 +23,10 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
+        
         return [
             'title' => 'required|unique:products|max:255|min:3',
+            'image' => 'required|mimes:png,jpg,jpeg,gif',
         ];
     }
 

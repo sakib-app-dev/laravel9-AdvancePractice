@@ -10,6 +10,7 @@
                             <div class="row">
                                 <div class="offset-md-3 col-md-6">
                                     <h1>Product Title: {{ $product->title ?? 'Not Available' }}</h1>
+                                    <img src="{{ asset('storage/products/'.$product->image ) }}" alt="" srcset="" height="200px">
                                     <p>Description: {{ $product->description ?? 'Not Available' }}</p>
                                     <p>Category: {{ $product->category ?? 'Not Available' }}</p>
                                     <p>Is Active: {{ $product->is_active ? 'Active' : 'Not Active' }}</p>
