@@ -2,7 +2,7 @@
     'name' => 'name',
     'list' => [],
     'selected'=>'',
-    'Label'=>''
+    'label'=>''
 ])
 {{-- @dd($attributes); --}}
 @if($label)

@@ -6,12 +6,16 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AdminController extends Controller
 {
     public function dashboard(){
         return view('admin.index');
     }
+
+/* */ 
+
     public function categoryForm(){
         return view('admin.forms');
     }
@@ -146,6 +150,17 @@ class AdminController extends Controller
     }
 
      
+
+
+
+    public function pdfDownload(){
+        $product=Product::all();
+        $pdf = Pdf::loadView('admin.product_list_pdf',compact('product'));
+        return $pdf->download('product.pdf');
+
+    }
+
+
     public function logIn(){
         return view('login');
     }

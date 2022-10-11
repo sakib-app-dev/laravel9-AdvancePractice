@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,12 @@ Route::prefix('/users')->name('users.')->group(function(){
 
 // Route::get('/',[AdminController::class,'logIn'])->name('log-in');
 // Route::get('/register',[AdminController::class,'register'])->name('register');
+
+
+
+Route::get('/admin',[AdminController::class, 'dashboard'])->name('admin.dashboard');
+// Group Routing
+
 Route::prefix('/admin')->name('admin.')->group(function(){
 
     Route::get('/',[AdminController::class, 'dashboard'])->name('dashboard');
@@ -76,9 +83,10 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     });
 });
 
-
+// Route::resource('/categories',CategoryController::class);
 
 
 Route::get('/pruducts-trash',[AdminController::class, 'productTrash'])->name('product.trash');
+Route::get('/pruducts-pdf',[AdminController::class, 'pdfDownload'])->name('product.pdf');
 Route::get('/pruducts-restore/{id}',[AdminController::class, 'productRestore'])->name('product.restore');
 Route::delete('/pruducts-delete/{id}',[AdminController::class, 'productDelete'])->name('product.delete');

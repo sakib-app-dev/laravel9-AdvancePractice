@@ -16,6 +16,7 @@
                     
                     <div class="col-md-8  text-right">
                         <a href="{{ url('/pruducts-trash') }}" class="btn btn-danger">Trash</a>
+                        <a href="{{ url('/pruducts-pdf') }}" class="btn btn-success">Pdf</a>
                     </div>
                     <table class="table table-bordered">
                         <thead>
