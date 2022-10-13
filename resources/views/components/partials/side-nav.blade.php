@@ -39,6 +39,34 @@
                 <li><a href="{{ route('admin.product.index') }}"><i class="fa fa-angle-right"></i> List of Products</a></li>
               </ul>
             </li>
+
+            {{-- color --}}
+            <li class="treeview">
+              <a href="#">
+              <i class="fa fa-edit"></i>
+              <span>Color</span>
+              <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ route('admin.color.form') }}"><i class="fa fa-angle-right"></i> Product Add Form</a></li>
+                <li><a href="{{ route('admin.color.index') }}"><i class="fa fa-angle-right"></i> List of Products</a></li>
+              </ul>
+            </li>
+            
+            {{-- color --}}
+            {{-- brand --}}
+            <li class="treeview">
+              <a href="#">
+              <i class="fa fa-edit"></i>
+              <span>Brands</span>
+              <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ route('brands.create') }}"><i class="fa fa-angle-right"></i> Create Brand</a></li>
+                <li><a href="{{ route('brands.index') }}"><i class="fa fa-angle-right"></i> List of Brands</a></li>
+              </ul>
+            </li>
+            {{-- Brand --}}
             <li class="treeview">
               <a href="charts.html">
               <i class="fa fa-pie-chart"></i>

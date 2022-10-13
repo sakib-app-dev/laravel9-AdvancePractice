@@ -1,7 +1,9 @@
 <?php
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ColorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,7 +59,7 @@ Route::prefix('/users')->name('users.')->group(function(){
 
 Route::get('/admin',[AdminController::class, 'dashboard'])->name('admin.dashboard');
 // Group Routing
-/*
+
 Route::prefix('/admin')->name('admin.')->group(function(){
 
     Route::get('/',[AdminController::class, 'dashboard'])->name('dashboard');
@@ -81,10 +83,31 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 
 
     });
+    Route::prefix('/color')->name('color.')->group(function(){
+        Route::get('/form',[ColorController::class, 'colorForm'])->name('form');
+        // Route::get('/{id}/edit',[AdminController::class, 'productEditForm'])->name('edit_form');
+        Route::post('/store',[ColorController::class, 'colorStore'])->name('store');
+        // Route::patch('/{id}/update',[AdminController::class, 'productUpdate'])->name('update');
+        Route::get('/list',[ColorController::class, 'colorList'])->name('index');
+        // Route::get('/show/{id}/',[AdminController::class, 'productShow'])->name('show');
+        // Route::delete('{id}/destroy',[AdminController::class, 'productDestroy'])->name('destroy');
+
+
+
+    });
 });
 
-*/
-Route::resource('/categories',CategoryController::class);
+
+
+
+
+// Route::resource('/admin/colors',ColorController::class);
+Route::resource('/admin/brands',BrandsController::class);
+
+
+
+
+
 
 
 Route::get('/pruducts-trash',[AdminController::class, 'productTrash'])->name('product.trash');
