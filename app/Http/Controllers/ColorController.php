@@ -8,10 +8,15 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class ColorController extends Controller
 {
-    public function colorForm(){
-        return view('admin.color_form');
+    public function index(){
+        $color=Color::all();
+        return view('admin.colors.index',compact('color'));
     }
-    public function colorStore(Request $request){
+
+    public function create(){
+        return view('admin.colors.create');
+    }
+    public function store(Request $request){
         
             Color::create([
                 'color_name'=>$request->color_name,
@@ -51,10 +56,6 @@ class ColorController extends Controller
 
 
 
-    public function colorList(){
-        $color=Color::all();
-        return view('admin.color_list',compact('color'));
-    }
 
  
 

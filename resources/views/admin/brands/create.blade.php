@@ -23,13 +23,7 @@
 
 
 								
-								@php
-									foreach ($color as $key => $data) {
-										# code...
-										dd($color);
-										$list = ['{{ $key }}' => '{{ $data }}',];
-									}
-								@endphp
+								
 								<x-form.select class="form-select form-select-lg mb-3 form-control" name="color" label="Color"   :list=$color />
 								
 								

@@ -24,8 +24,8 @@
               <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('admin.category.form') }}"><i class="fa fa-angle-right"></i> Category Add Form</a></li>
-                <li><a href="{{ route('admin.category.list') }}"><i class="fa fa-angle-right"></i> List of Categories</a></li>
+                <li><a href="{{ route('admin.category.create') }}"><i class="fa fa-angle-right"></i> Category Add Form</a></li>
+                <li><a href="{{ route('admin.category.index') }}"><i class="fa fa-angle-right"></i> List of Categories</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -48,7 +48,7 @@
               <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('admin.color.form') }}"><i class="fa fa-angle-right"></i> Product Add Form</a></li>
+                <li><a href="{{ route('admin.color.create') }}"><i class="fa fa-angle-right"></i> Product Add Form</a></li>
                 <li><a href="{{ route('admin.color.index') }}"><i class="fa fa-angle-right"></i> List of Products</a></li>
               </ul>
             </li>

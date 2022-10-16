@@ -24,6 +24,8 @@
                                 <th>#</th>
                                 <th>Product Name</th>
                                 <th>Category</th>
+                                <th>Brand</th>
+                                <th>color</th>
                                 <th>Is Active?</th>
                                 <th>Description</th>
                                 
@@ -35,7 +37,9 @@
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $data->title }}</td>
-                                    <td>{{ $data->category }}</td>
+                                    <td>{{ $data->categories?->title }}</td>
+                                    <td>{{ $data->brands?->title }}</td>
+                                    <td>{{ $data->color?->color_name }}</td>
                                     <td>{{ $data->is_active }}</td> 
                                     <td>{{ $data->description }}</td>
                                     

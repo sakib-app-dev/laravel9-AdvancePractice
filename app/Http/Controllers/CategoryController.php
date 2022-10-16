@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.tables');
+        $category=Category::all();
+        return view('admin.categories.index',compact('category'));
     }
 
     /**
@@ -23,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.forms');
+        return view('admin.categories.create');
     }
 
     /**
@@ -34,7 +36,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create([
+            'title'=>$request->title,
+            'is_active'=>$request->is_active ? true : false,
+        ]);
+    
+        return redirect()
+        ->route('admin.category.index')
+        ->with('message','Create Successfully...');
     }
 
     /**

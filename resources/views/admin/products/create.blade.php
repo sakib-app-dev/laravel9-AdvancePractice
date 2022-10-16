@@ -1,4 +1,5 @@
 <x-master>
+
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page">
@@ -11,36 +12,29 @@
 							<form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data">
 								@csrf
 								<div class="form-group">
-								  {{-- <label for="product_title">Title</label>
-								  <input type="text" class="form-control" id="product_title" name="title" value="{{ old('title') }}" placeholder="Enter Product Title....">
-								  @error('title')
-								  <span class="form-text text-danger">{{ $message }}</span>
-								  @enderror --}}
-
 								  <x-form.input type="text" name="title" label="Product Title" required placeholder="Product Title...." />
 								</div>
 
-								{{-- <x-form.checkbox name="category" label="Category" required placeholder="Product Title...." class="form-select form-select-lg mb-3 form-control"
-								:option[
-
-								]
-								
-								/> --}}
-								{{--  
-								<select class="form-select form-select-lg mb-3 form-control" aria-label="Default select example" name="category">
-									<option selected disabled>Select Category</option>
-									<option value="Kids">Kids</option>
-									<option value="Men">Men</option>
-									<option value="Women">Women</option>
-								</select>
-								--}}
 
 								{{-- select with component --}}
+
+								{{-- Category --}}
+								
+								<x-form.select class="form-select form-select-lg mb-3 form-control" name="category" label="Category"   :list=$list />
+								
+								{{-- Brand --}}
 								@php
 									
 									$list = ['Kids' => 'Kids', 'Men' => 'Men','Women'=>'Women'];
 								@endphp
-								<x-form.select class="form-select form-select-lg mb-3 form-control" name="category" label="Category"   :list=$list />
+								<x-form.select class="form-select form-select-lg mb-3 form-control" name="brand" label="Brand"   :list=$list />
+								
+								{{-- color --}}
+								@php
+									
+									$list = ['Kids' => 'Kids', 'Men' => 'Men','Women'=>'Women'];
+								@endphp
+								<x-form.select class="form-select form-select-lg mb-3 form-control" name="color" label="Color"   :list=$list />
 								
 								
 								

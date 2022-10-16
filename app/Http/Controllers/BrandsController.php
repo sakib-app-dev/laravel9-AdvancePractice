@@ -17,7 +17,7 @@ class BrandsController extends Controller
     {
         $brands=Brands::all();
         
-        return view('admin.brands_list',compact('brands'));
+        return view('admin.brands.index',compact('brands'));
     }
 
     /**
@@ -28,7 +28,7 @@ class BrandsController extends Controller
     public function create(Request $request)
     {
         $color=Color::all();
-        return view('admin.brand_form',compact('color'));
+        return view('admin.brands.create',compact('color'));
     }
 
     /**
